@@ -8,14 +8,12 @@ function setText(divName, text){
 }
 // When the user clicks on the button, open the modal
 function show(popup) {
+	var center = document.getElementById('parentdiv');
+	center.style.backgroundImage = 'none';
 	popup.style.display = "block";
+
 }
-// Close modal
-function close(x, modal){
-	x.onclick = function() {
-		modal.style.display = "none";
-	}
-}
+
 // Attaches modal and close to button
 function setModal(int){
 	buttons[int+""].onclick = function() {
@@ -23,45 +21,10 @@ function setModal(int){
 	}
 	closes[int].onclick = function() {
 		modals[int+""].style.display = "none";
+		document.getElementById('parentdiv').style.backgroundImage = "url('http://image.flaticon.com/icons/svg/166/166679.svg')";
 	}
 }
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-	if (event.target == modal) {
-		modal.style.display = "none";
-
-	}
-}
-
-//Adds surrounding circles
-var div = 360 / 9;
-var radius = 325;
-var parentdiv = document.getElementById('parentdiv');
-
-
-var offsetToParentCenter = parseInt(parentdiv.offsetWidth / 2);  //assumes parent is square
-var offsetToChildCenter = 80;
-var totalOffset = offsetToParentCenter - offsetToChildCenter;
-for (var i = 1; i <= 9; ++i)
-{
-	var childdiv = document.createElement('BUTTON');
-	childdiv.className = 'div2';
-	childdiv.id = "circle"+i;
-	childdiv.style.position = 'absolute';
-	childdiv.style.fontSize = "16px";
-	childdiv.style.top = totalOffset + "px";
-	childdiv.style.left = totalOffset + "px";
-	childdiv.style.animationDelay = -2.22*i+"s";
-	parentdiv.appendChild(childdiv);
-}
-
-var circles = document.querySelectorAll('.div2');
-for(var i=0; i<circles.length; i++){
-	circles[i].onmouseover = pauseOnHover;
-	circles[i].onmouseout = pauseOnHover;
-	circles[i].style.webkitAnimationPlayState = 'running';
-}
+//stops animation on hover
 function pauseOnHover() {
 	var style;
 	for(var i=0; i<circles.length; i++){
@@ -79,7 +42,41 @@ function pauseOnHover() {
 	}
 }
 
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+	if (event.target == modal) {
+		modal.style.display = "none";
 
+	}
+}
+
+//Adds surrounding circles
+var div = 360 / 9;
+var radius = 325;
+var parentdiv = document.getElementById('parentdiv');
+var offsetToParentCenter = parseInt(parentdiv.offsetWidth / 2);  //assumes parent is square
+var offsetToChildCenter = 80;
+var totalOffset = offsetToParentCenter - offsetToChildCenter;
+for (var i = 1; i <= 9; ++i)
+{
+	var childdiv = document.createElement('BUTTON');
+	childdiv.className = 'div2';
+	childdiv.id = "circle"+i;
+	childdiv.style.position = 'absolute';
+	childdiv.style.fontSize = "16px";
+	childdiv.style.top = totalOffset + "px";
+	childdiv.style.left = totalOffset + "px";
+	childdiv.style.animationDelay = -2.22*i+"s";
+	parentdiv.appendChild(childdiv);
+}
+
+
+var circles = document.querySelectorAll('.div2');
+for(var i=0; i<circles.length; i++){
+	circles[i].onmouseover = pauseOnHover;
+	circles[i].onmouseout = pauseOnHover;
+	circles[i].style.webkitAnimationPlayState = 'running';
+}
 
 setText(circle1,"light and refreshing");
 setText(circle2, "sweet and strong");
