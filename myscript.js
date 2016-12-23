@@ -25,10 +25,12 @@ function setModal(int){
 		modals[int+""].style.display = "none";
 	}
 }
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
 	if (event.target == modal) {
 		modal.style.display = "none";
+
 	}
 }
 
@@ -36,22 +38,48 @@ window.onclick = function(event) {
 var div = 360 / 9;
 var radius = 325;
 var parentdiv = document.getElementById('parentdiv');
+
+
 var offsetToParentCenter = parseInt(parentdiv.offsetWidth / 2);  //assumes parent is square
-var offsetToChildCenter = 100;
+var offsetToChildCenter = 80;
 var totalOffset = offsetToParentCenter - offsetToChildCenter;
 for (var i = 1; i <= 9; ++i)
 {
 	var childdiv = document.createElement('BUTTON');
-
 	childdiv.className = 'div2';
 	childdiv.id = "circle"+i;
 	childdiv.style.position = 'absolute';
 	childdiv.style.fontSize = "16px";
 	childdiv.style.top = totalOffset + "px";
 	childdiv.style.left = totalOffset + "px";
-	childdiv.style.animationDelay = -2.5*i+"s";
+	childdiv.style.animationDelay = -2.22*i+"s";
 	parentdiv.appendChild(childdiv);
 }
+
+var circles = document.querySelectorAll('.div2');
+for(var i=0; i<circles.length; i++){
+	circles[i].onmouseover = pauseOnHover;
+	circles[i].onmouseout = pauseOnHover;
+	circles[i].style.webkitAnimationPlayState = 'running';
+}
+function pauseOnHover() {
+	var style;
+	for(var i=0; i<circles.length; i++){
+		style = circles[i].style;
+
+		if(style.webkitAnimationPlayState === 'running') {
+			style.webkitAnimationPlayState = 'paused';
+			document.body.className = 'paused';
+
+		}
+		else {
+			style.webkitAnimationPlayState = 'running';
+			document.body.className = '';
+		}
+	}
+}
+
+
 
 setText(circle1,"light and refreshing");
 setText(circle2, "sweet and strong");
