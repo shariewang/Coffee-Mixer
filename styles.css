@@ -1,0 +1,164 @@
+@-webkit-keyframes orbit {
+	0% {
+
+    -webkit-transform: rotate(0deg) translateX(350px) rotate(0deg);
+  }
+	100%   {  -webkit-transform: rotate(360deg) translateX(350px) rotate(-360deg); }
+}
+
+
+
+#parentdiv
+    {
+        position: relative;
+        width: 375px;
+        height: 375px;
+        background-color: #ac5;
+        border-radius: 50%;
+        margin: 300px;
+
+
+
+    }
+.div2
+    {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background-color: #ac5;
+        border-radius: 50%;
+        animation: orbit 20s linear infinite;
+
+    }
+
+
+button {
+    background-color: white;
+    font-family: 'Open Sans', sans-serif;
+    border: none;
+    display: inline;
+    width: 300px;
+    height: 300px;
+    -webkit-transition: opacity 1s;
+    color: white;
+    text-align: center;
+    border-radius: 50%;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+#ingredients img {
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  margin-left: 1.5em;
+  margin-right: 1em;
+}
+
+
+
+/* The Modal (background) */
+.modal {
+    display: none;/* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 25%; /* Could be more or less, depending on screen size */
+    overflow: auto;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#footer {
+    color: black;
+    padding-left: 3em;
+    padding-top: 1em;
+    font-size: .9em;
+    padding-bottom: 1em;
+    display: block;
+
+
+}
+
+
+#circle1 {
+  background-color: #A095EE;
+
+}
+
+#circle2 {
+  background-color: #86BCFF;
+}
+#circle3 {
+  background-color: #9d549c;
+
+}
+#circle4 {
+  background-color: #8fddea;
+
+}
+#circle5 {
+  background-color: #b05462;
+
+}
+#circle6 {
+  background-color: #6ea634;
+
+}
+#circle7 {
+  background-color: #ffa48e;
+
+}
+#circle8 {
+  background-color: #ceba90;
+
+}
+#circle9 {
+  background-color: #FF9797;
+
+}
+
+
+.name {
+  font-weight: bold;
+  font-size: 2em;
+  margin: 0 0 0 0;
+}
+
+.description {
+  font-size: 1em;
+  margin: 0.5em 0 1.5em 1.5em;
+}
